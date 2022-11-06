@@ -1,7 +1,6 @@
 # Prova_P00
 Prova 2 de POO
 
-Todo os organizadores estarão inscritos -> Talvez<br>
 1 - Feito em parte<br>
 2 - Pronto<br>
 3 - Pronto<br>
