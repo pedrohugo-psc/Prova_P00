@@ -3,9 +3,9 @@ Prova 2 de POO
 
 Todo os organizadores estarão inscritos -> Talvez<br>
 1 - Feito em parte<br>
-2 - Feito em parte. Precisa colocar os participantes como pendentes<br>
-3 - Feito. Ajeitar no menu<br>
-4 - Feito<br>
+2 - Pronto<br>
+3 - Pronto<br>
+4 - Pronto<br>
 5 - A fazer<br>
 6 - Feito em parte. Criar um método do proponente submete o artigo<br>
 7 - A fazer<br>
