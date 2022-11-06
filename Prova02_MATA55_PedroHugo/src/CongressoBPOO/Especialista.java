@@ -11,4 +11,9 @@ public abstract class Especialista extends Pessoa {
 		especilistas.add(nome_e);
 	}
 	
+	public Especialista(Participante inscrito_e,String area_conhecimento_e) {
+		super();
+		this.area_conhecimento = area_conhecimento_e;
+		especilistas.add(inscrito_e.nome);
+	}
 }

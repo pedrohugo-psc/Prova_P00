@@ -6,6 +6,11 @@ public class Program_Chairs extends Organizadores{
 		super(nome_pc, cpf_pc, data_nascimento_pc, titulacao_acad_pc, instituicao_vinc_pc,senha_pc);
 	}
 	
+	public Program_Chairs(Participante inscrito_pc) {
+		super();
+		this.setInscrito(true);
+	}
+	
 	public void listaEspecialista() {
 		for(int i = 0; i < Especialista.especilistas.size(); i++) {
 			System.out.println(Especialista.especilistas.get(i));

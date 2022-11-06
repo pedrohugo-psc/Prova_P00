@@ -5,6 +5,7 @@ import CongressoBPOO.Autor;
 import CongressoBPOO.Revisor;
 import CongressoBPOO.Artigo;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main {
 	public static void main(String[] arg) {
@@ -14,7 +15,7 @@ public class Main {
 		String senha = "";
 		
 		Participante p1 = new Participante("Maria", "05531958595", "31/10/1994", "Estudante", "UFBA", "1234");
-		Autor p2 = new Autor("Pedro", "057531958595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
+		Autor p2 = new Autor("Pedro", "05531958595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		Revisor p3 = new Revisor("Raquel", "055531958595", "31/10/1994", "Estudante", "UFBA", "1234", "Matematica");
 		Participante p4 = new Participante("Iva", "055531958596", "31/10/1994", "Estudante", "UFBA", "1234");
 		
@@ -39,7 +40,7 @@ public class Main {
 		
 		pc1.validaArtigo(a1, 2);
 		
-		p4.setAutor("Psicologia");
+		p4.setAutor(p4,"Psicologia");
 		
 		Autor[] autores1 = {au1,p4.getAutor()};
 		
@@ -59,32 +60,172 @@ public class Main {
 			System.out.println("3 - Sair");
 			System.out.print("Digite uma dessas opções acima: ");
 			Scanner scanner = new Scanner(System.in);
-			opcao = scanner.nextInt();
-		
-			switch(opcao) {
-				case 1:
-					System.out.println();
-					System.out.print("Insira o seu CPF: ");
-					Scanner scanner1 = new Scanner(System.in);
-					cpf = scanner1.next();
-					System.out.print("Insira a sua senha: ");
-					Scanner scanner2 = new Scanner(System.in);
-					senha = scanner2.next();
-					if (Participante.procuraCPFs(cpf) == 1 && Participante.procuraSenhas(senha) == 1) {
+			try {
+				opcao = scanner.nextInt();
+				switch(opcao) {
+					case 1:
 						System.out.println();
-						System.out.print("Login Feito!");
-					}else {
+						System.out.print("Insira o seu CPF: ");
+						Scanner scanner1 = new Scanner(System.in);
+						cpf = scanner1.next();
+						System.out.print("Insira a sua senha: ");
+						Scanner scanner2 = new Scanner(System.in);
+						senha = scanner2.next();
+						if (Participante.procuraCPFs(cpf) == 1 && Participante.procuraSenhas(senha) == 1) {
+							System.out.println();
+							System.out.println("Login Feito!");
+							if(Participante.getTipoparticipante(cpf) == 'o') {
+								System.out.println();
+								System.out.println("Menu para ouvinte");
+							}else if(Participante.getTipoparticipante(cpf) == 'a') {
+								System.out.println();
+								System.out.println("Menu para autor");
+							}else if(Participante.getTipoparticipante(cpf) == 'r') {
+								System.out.println();
+								System.out.println("Menu para revisor");
+							}else if(Participante.getTipoparticipante(cpf) == 'p') {
+								System.out.println();
+								System.out.println("Menu para program chair");
+							}else if(Participante.getTipoparticipante(cpf) == 'g') {
+								boolean sair2 = false;
+								while(sair2 == false) {
+									System.out.println();
+									System.out.println("Menu para general chair");
+									System.out.println();
+									System.out.println("Escolha dessas opções: ");
+									System.out.println("1 - Validar inscrição de participante");
+									System.out.println("2 - Invalidar inscrição de participante");
+									System.out.println("3 - Emitir certificado para participante");
+									System.out.println("4 - Sair");
+									Scanner scanner10 = new Scanner(System.in);
+									try {
+										int opcao2 = scanner10.nextInt();
+										switch(opcao2){
+											case 1:
+												System.out.println();
+												System.out.print("Digite o cpf de um participante para validar a sua inscrição: ");
+												Scanner scanner11 = new Scanner(System.in);
+												String cpf1 = scanner11.next();
+												General_Chairs.validaInscricao(cpf1);
+												break;
+											case 2:
+												System.out.println();
+												System.out.print("Digite o cpf de um participante para invalidar a sua inscrição: ");
+												Scanner scanner12 = new Scanner(System.in);
+												String cpf2 = scanner12.next();
+												General_Chairs.invalidaInscricao(cpf2);
+												break;
+											case 3:
+												
+												break;
+											case 4:
+												sair2 = true;
+												break;
+											default:
+												System.out.println("Digite um valor correto");
+												break;
+										}
+									}catch (InputMismatchException e){
+										System.out.println("Erro: Você deve inserir um número!");
+									}	
+								
+								}
+							}
+							
+						}else {
+							System.out.println();
+							System.out.print("Login não encontrado");
+						}
+						break;
+					case 2:
 						System.out.println();
-						System.out.print("Login não encontrado");
-					}
-					break;
-				case 2:
-				case 3:
-					sair = true;
-					break;
-				default:
-					System.out.println("Opção Invalida");
-					break;
+						System.out.print("Insira o seu nome: ");
+						Scanner scanner3 = new Scanner(System.in);
+						String nome_ins = scanner3.next();
+						System.out.print("Insira o seu CPF: ");
+						Scanner scanner4 = new Scanner(System.in);
+						String cpf_ins = scanner4.next();
+						System.out.print("Insira a sua data de nascimento: ");
+						Scanner scanner5 = new Scanner(System.in);
+						String data_nascimento_ins = scanner5.next();
+						System.out.print("Insira a sua titulação: ");
+						Scanner scanner6 = new Scanner(System.in);
+						String titulacao_acad_ins = scanner6.next();
+						System.out.print("Insira a sua instituição: ");
+						Scanner scanner7 = new Scanner(System.in);
+						String instituicao_vinc_ins = scanner7.next();
+						System.out.print("Insira uma senha: ");
+						Scanner scanner8 = new Scanner(System.in);
+						String senha_ins = scanner8.next();
+						Participante p = new Participante(nome_ins, cpf_ins, data_nascimento_ins, titulacao_acad_ins, instituicao_vinc_ins, senha_ins);
+						if(p.getValidador() == 1) {
+							boolean sair1 = false;
+							while (sair1 == false) {
+								System.out.println();
+								System.out.println("Bem-vindo(a), "+ nome_ins+ "!");
+								System.out.println();
+								System.out.println("Escolha a sua categoria: ");
+								System.out.println("1 - Ouvinte");
+								System.out.println("2 - Autor");
+								System.out.println("3 - Revisor");
+								System.out.println("4 - Program Chair");
+								System.out.println("5 - General Chair");
+								Scanner scanner9 = new Scanner(System.in);
+								try {
+									int opcao1 = scanner9.nextInt();
+									switch(opcao1){
+										case 1:
+											System.out.println("Você será ouvinte!");
+											sair1 = true;
+											break;
+										case 2:
+											System.out.println("Você será autor!");
+											System.out.println();
+											System.out.print("Digite sua área de conhecimento: ");
+											Scanner scanner10 = new Scanner(System.in);
+											String area = scanner10.next();
+											p.setAutor(p,area);
+											sair1 = true;
+											break;
+										case 3:
+											System.out.println("Você será revisor!");
+											System.out.println();
+											System.out.print("Digite sua área de conhecimento: ");
+											Scanner scanner11 = new Scanner(System.in);
+											String area1 = scanner11.next();
+											p.setRevisor(p,area1);
+											sair1 = true;
+											break;
+										case 4:
+											System.out.println("Você será program chair!");
+											p.setProgramChairs(p);
+											sair1 = true;
+											break;
+										case 5:
+											System.out.println("Você será general chair!");
+											p.setGeneralChairs(p);
+											sair1 = true;
+											break;
+										default:
+											System.out.println("Digite um valor correto");
+											break;
+									}
+								}catch (InputMismatchException e){
+									System.out.println("Erro: Você deve inserir um número!");
+								}
+							}
+							
+						}
+						break;
+					case 3:
+						sair = true;
+						break;
+					default:
+						System.out.println("Opção Invalida");
+						break;
+				}
+			}catch (InputMismatchException e){
+				System.out.println("Erro: Você deve inserir um número!");
 			}
 		}
 		
