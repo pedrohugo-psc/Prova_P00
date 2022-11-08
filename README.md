@@ -5,8 +5,8 @@ Prova 2 de POO
 2 - Pronto<br>
 3 - Pronto<br>
 4 - Pronto<br>
-5 - A fazer<br>
-6 - Feito em parte. Criar um método do proponente submete o artigo<br>
+5 - Pronto<br>
+6 - Feito em parte. Criar um método do proponente submete o artigo. Criar um outro construtor proprio para o proponente possa submeter os artigos<br>
 7 - A fazer<br>
 8 - A fazer<br>
 9 - Feito em parte<br>
