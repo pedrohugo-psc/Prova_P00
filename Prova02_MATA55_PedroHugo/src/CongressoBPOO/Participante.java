@@ -52,8 +52,14 @@ public class Participante extends Pessoa {
 		return valida;
 	}
 	
-	public Autor getAutor(){
-		return autor;
+	public static Autor getAutor(String cpf){
+		int indice = 0; 
+		for(int i = 0; i < participantes.size(); i++) {
+			if(cpfs.get(i).equals(cpf)) {
+				indice = i;
+			}
+		}
+		return participantes.get(indice).autor;
 	}
 	
 	public char getTipoparticipante(){

@@ -14,5 +14,15 @@ public class Autor extends Especialista {
 	public boolean getInscricao() {
 		return inscrito;
 	}
+	
+	public static String getArea_conhecimento(String cpf) {
+		int indice = 0; 
+		for(int i = 0; i < Participante.participantes.size(); i++) {
+			if(Participante.cpfs.get(i).equals(cpf)) {
+				indice = i;
+			}
+		}
+		return Participante.participantes.get(indice).autor.area_conhecimento;
+	}
 
 }

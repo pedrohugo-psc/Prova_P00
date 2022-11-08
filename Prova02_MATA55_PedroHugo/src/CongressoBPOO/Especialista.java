@@ -16,4 +16,5 @@ public abstract class Especialista extends Pessoa {
 		this.area_conhecimento = area_conhecimento_e;
 		especilistas.add(inscrito_e.nome);
 	}
+	
 }

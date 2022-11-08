@@ -28,23 +28,23 @@ public class Main {
 		Revisor r1 = new Revisor("Amanda", "057535958795", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		Revisor r2 = new Revisor("Tulio", "057535458795", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		
-		Autor[] autores = {au1};
+		//Autor[] autores = {au1};
 		Revisor[] revisores = {r1,r2};
 		String[] palavras_chaves_a1 = {"Vida","Mar"};
 		
-		Artigo a1 = new Artigo(autores,revisores,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
+		//Artigo a1 = new Artigo(autores,revisores,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
 		
 		Program_Chairs pc1 = new Program_Chairs ("Carlos", "00031955597", "12/10/2017", "Professor", "UFBA","123f");
 		
 		pc1.listaEspecialista();
 		
-		pc1.validaArtigo(a1, 2);
+		//pc1.validaArtigo(a1, 2);
 		
 		p4.setAutor(p4,"Psicologia");
 		
-		Autor[] autores1 = {au1,p4.getAutor()};
+		//Autor[] autores1 = {au1,p4.getAutor()};
 		
-		Artigo a2 = new Artigo(autores1,revisores,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
+		//Artigo a2 = new Artigo(autores1,revisores,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
 		
 		System.out.println();
 		
@@ -80,6 +80,66 @@ public class Main {
 							}else if(Participante.getTipoparticipante(cpf) == 'a') {
 								System.out.println();
 								System.out.println("Menu para autor");
+								boolean sair3 = false;
+								while(sair3 == false) {
+									System.out.println();
+									System.out.println("Menu para o autor");
+									System.out.println();
+									System.out.println("Escolha uma dessas opções: ");
+									System.out.println("1 - Submeter artigo");
+									System.out.println("2 - Sair");
+									Scanner scanner14 = new Scanner(System.in);
+									try {
+										int opcao3 = scanner14.nextInt();
+										switch(opcao3) {
+											case 1:
+												System.out.println("Quantos autores vão participar desse artigo?");
+												Scanner scanner15 = new Scanner(System.in);
+												try {
+													int num_autores = scanner15.nextInt();
+													if(num_autores <= 0 ||  num_autores > 5) {
+														System.out.println("Você deve escolher entre 1 a 5 autores");
+													}else {
+														Autor[] autores = new Autor[num_autores];
+														autores[0] = Participante.getAutor(cpf);
+														if(num_autores > 1) {
+															Autor co_autor; 
+															for(int i = 1; i < num_autores; i++) {
+																System.out.println("Digite o nome do autor " + i);
+																Scanner scanner16 = new Scanner(System.in);
+																String nome_autor = scanner16.next();
+																System.out.println("Digite o CPF do autor " + i);
+																Scanner scanner17 = new Scanner(System.in);
+																String cpf_autor = scanner17.next();
+																System.out.println("Digite a data de nascimento do autor " + i);
+																Scanner scanner18 = new Scanner(System.in);
+																String data_nasc_autor = scanner18.next();
+																System.out.println("Digite a titulação do autor " + i);
+																Scanner scanner19 = new Scanner(System.in);
+																String titu_autor = scanner19.next();
+																System.out.println("Digite a instituição do autor " + i);
+																Scanner scanner20 = new Scanner(System.in);
+																String inst_autor = scanner20.next();
+																System.out.println("Digite a senha do autor " + i);
+																Scanner scanner21 = new Scanner(System.in);
+																String senha_autor = scanner21.next();
+																co_autor = new Autor(nome_autor, cpf_autor, data_nasc_autor, titu_autor, inst_autor, senha_autor,Autor.getArea_conhecimento(cpf));
+																autores[i] = co_autor;
+															}
+														}
+													}
+												}catch (InputMismatchException e){
+													System.out.println("Erro: Você deve inserir um número!");
+												}
+												break;
+											case 2:
+												sair3 = true;
+												break;
+										}
+									}catch (InputMismatchException e){
+										System.out.println("Erro: Você deve inserir um número!");
+									}	
+								}
 							}else if(Participante.getTipoparticipante(cpf) == 'r') {
 								System.out.println();
 								System.out.println("Menu para revisor");
@@ -92,7 +152,7 @@ public class Main {
 									System.out.println();
 									System.out.println("Menu para general chair");
 									System.out.println();
-									System.out.println("Escolha dessas opções: ");
+									System.out.println("Escolha uma dessas opções: ");
 									System.out.println("1 - Validar inscrição de participante");
 									System.out.println("2 - Invalidar inscrição de participante");
 									System.out.println("3 - Emitir certificado para participante");
@@ -116,7 +176,11 @@ public class Main {
 												General_Chairs.invalidaInscricao(cpf2);
 												break;
 											case 3:
-												
+												System.out.println();
+												System.out.print("Digite o cpf de um participante para emitir o certificado: ");
+												Scanner scanner13 = new Scanner(System.in);
+												String cpf3 = scanner13.next();
+												General_Chairs.emitirCertificado(cpf3);
 												break;
 											case 4:
 												sair2 = true;
