@@ -1,5 +1,7 @@
 package CongressoBPOO;
 import java.util.LinkedList;
+import java.util.Collections;
+
 
 public class Participante extends Pessoa {
 	protected boolean valida = false; // true - inscrição valida; false - inscrição invalida
@@ -23,6 +25,7 @@ public class Participante extends Pessoa {
 			participantes.add(this);
 		}
 	}
+	
 	
 	public void setAutor(Participante inscrito,String area_par) {
 		autor = new Autor(inscrito, area_par);
@@ -62,8 +65,39 @@ public class Participante extends Pessoa {
 		return participantes.get(indice).autor;
 	}
 	
+	public static Program_Chairs getProgramC(String cpf){
+		int indice = 0; 
+		for(int i = 0; i < participantes.size(); i++) {
+			if(cpfs.get(i).equals(cpf)) {
+				indice = i;
+			}
+		}
+		return participantes.get(indice).program;
+	}
+	
+
+	public static Revisor getRevisor(String cpf){
+		int indice = 0; 
+		for(int i = 0; i < participantes.size(); i++) {
+			if(cpfs.get(i).equals(cpf)) {
+				indice = i;
+			}
+		}
+		return participantes.get(indice).revisor;
+	}
+	
 	public char getTipoparticipante(){
 		return tipo_participante;
+	}
+	
+	public static Participante getParticipante(String cpf){
+		int indice = 0; 
+		for(int i = 0; i < participantes.size(); i++) {
+			if(cpfs.get(i).equals(cpf)) {
+				indice = i;
+			}
+		}
+		return participantes.get(indice);
 	}
 	
 	public static byte procuraCPFs(String cpf){
@@ -106,9 +140,21 @@ public class Participante extends Pessoa {
 		return participantes.get(indice).tipo_participante;
 	}
 	
-	public void listaParticipantes() {
+	public static void listaParticipantes() {
+		Collections.sort(nomes_participantes);
 		for(int i = 0; i < nomes_participantes.size(); i++) {
 			System.out.println(nomes_participantes.get(i));
 		}
+	}
+	
+
+	public static byte verificaCPF(String cpf_p) {
+		byte verifica = 0;
+		for (int i = 0; i < cpf_pessoas.size(); i++) {
+			if(cpf_pessoas.get(i).equals(cpf_p)) {
+				verifica = 1;
+			}
+		}
+		return verifica;
 	}
 }

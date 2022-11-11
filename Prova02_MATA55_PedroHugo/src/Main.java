@@ -1,6 +1,7 @@
 import CongressoBPOO.Program_Chairs;
 import CongressoBPOO.General_Chairs;
 import CongressoBPOO.Participante;
+import CongressoBPOO.Pessoa;
 import CongressoBPOO.Autor;
 import CongressoBPOO.Revisor;
 import CongressoBPOO.Artigo;
@@ -16,8 +17,50 @@ public class Main {
 		
 		Participante p1 = new Participante("Maria", "05531958595", "31/10/1994", "Estudante", "UFBA", "1234");
 		Autor p2 = new Autor("Pedro", "05531958595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
-		Revisor p3 = new Revisor("Raquel", "055531958595", "31/10/1994", "Estudante", "UFBA", "1234", "Matematica");
+		Participante p3 = new Participante("Raquel", "055531958595", "31/10/1994", "Estudante", "UFBA", "1234");
 		Participante p4 = new Participante("Iva", "055531958596", "31/10/1994", "Estudante", "UFBA", "1234");
+		Participante r1 = new Participante("Amanda", "057535958795", "31/10/1994", "Estudante", "UFBA", "1234");
+		Participante r2 = new Participante("Tulio", "057535458795", "31/10/1994", "Estudante", "UFBA", "1234");
+		
+		r1.setRevisor(r1, "Egito");
+		r2.setRevisor(r2, "Egito");
+		String[] palavras_chaves_a1 = {"Vida","Mar"};
+		p4.setAutor(p4,"Psicologia");
+		Revisor[] revisoresx = {r1.getRevisor("057535958795"),r2.getRevisor("057535458795")};
+		Autor[] autoresx = {p4.getAutor("055531958596")};
+		
+		//Artigo a1 = new Artigo(autoresx,revisoresx,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
+		//Artigo a2 = new Artigo(autoresx,revisoresx,"Aba","Eu amo a Gabriela",palavras_chaves_a1,78,"21/10/2021");
+		
+		/*p1.setProgramChairs(p1);
+		
+		autoresx[0].avaliacaoArtigo();
+		revisoresx[1].setArtigo(a1);
+		revisoresx[0].setArtigo(a1);
+		autoresx[0].setArtigo(a1);
+		revisoresx[1].listaArtigos();
+		revisoresx[0].listaArtigos();
+		revisoresx[1].verAvalicao();
+		revisoresx[1].avaliaArtigo("Teste");
+		revisoresx[0].avaliaArtigo("Teste");
+		System.out.println("--------------------------");
+		autoresx[0].avaliacaoArtigo();
+		System.out.println();
+		System.out.println("--------------------------");
+		revisoresx[1].verAvalicao();
+		System.out.println();
+		System.out.println("--------------------------");
+		revisoresx[0].verAvalicao();
+		System.out.println("--------------------------");
+		Program_Chairs.verAvaliacao();
+		p1.getProgramC("05531958595").validaArtigo("Teste",1);
+		System.out.println("--------------------------");
+		p1.listaArtigos_aprovados();
+		System.out.println("--------------------------");
+		p1.listaArtigos_reprovados();
+		System.out.println("--------------------------");
+		p1.listaDadosArtigos();
+		System.out.println("--------------------------");
 		
 		Autor au1 = new Autor("Pedro", "057531958595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		Autor au2 = new Autor("Gabriela", "057531954595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
@@ -25,22 +68,23 @@ public class Main {
 		Autor au4 = new Autor("Francisco", "157531954595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		Autor au5 = new Autor("Leticia", "057535958595", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		
-		Revisor r1 = new Revisor("Amanda", "057535958795", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
-		Revisor r2 = new Revisor("Tulio", "057535458795", "31/10/1994", "Estudante", "UFBA", "1234","Engenharia");
 		
-		//Autor[] autores = {au1};
-		Revisor[] revisores = {r1,r2};
-		String[] palavras_chaves_a1 = {"Vida","Mar"};
+		Participante.listaParticipantes();
 		
-		//Artigo a1 = new Artigo(autores,revisores,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
 		
-		Program_Chairs pc1 = new Program_Chairs ("Carlos", "00031955597", "12/10/2017", "Professor", "UFBA","123f");
+		/*
 		
-		pc1.listaEspecialista();
+		Artigo a1 = new Artigo(autoresx,revisoresx,"Teste","Esse artigo é muito legal",palavras_chaves_a1,40,"21/10/2021");
+		r1.setArtigo(a1);
+		r1.listaArtigos();*/
+		
+		/*Program_Chairs pc1 = new Program_Chairs ("Carlos", "00031955597", "12/10/2017", "Professor", "UFBA","123f");
+		
+		//pc1.listaEspecialista();
 		
 		//pc1.validaArtigo(a1, 2);
 		
-		p4.setAutor(p4,"Psicologia");
+		//p4.setAutor(p4,"Psicologia");
 		
 		//Autor[] autores1 = {au1,p4.getAutor()};
 		
@@ -48,7 +92,7 @@ public class Main {
 		
 		System.out.println();
 		
-		pc1.listaEspecialista();
+		pc1.listaEspecialista();*/
 		
 		while (sair == false) {
 			System.out.println();
@@ -57,7 +101,10 @@ public class Main {
 			System.out.println("------------------------------------------------------");
 			System.out.println("1 - Fazer Login");
 			System.out.println("2 - Inscrição");
-			System.out.println("3 - Sair");
+			System.out.println("3 - Ver lista de artigos aprovados");
+			System.out.println("4 - Ver lista de artigos reprovados");
+			System.out.println("5 - Ver lista de participantes");
+			System.out.println("6 - Sair");
 			System.out.print("Digite uma dessas opções acima: ");
 			Scanner scanner = new Scanner(System.in);
 			try {
@@ -76,10 +123,9 @@ public class Main {
 							System.out.println("Login Feito!");
 							if(Participante.getTipoparticipante(cpf) == 'o') {
 								System.out.println();
-								System.out.println("Menu para ouvinte");
-							}else if(Participante.getTipoparticipante(cpf) == 'a') {
+								System.out.println("Bem-vindo, ouvinte!");
 								System.out.println();
-								System.out.println("Menu para autor");
+							}else if(Participante.getTipoparticipante(cpf) == 'a') {
 								boolean sair3 = false;
 								while(sair3 == false) {
 									System.out.println();
@@ -87,52 +133,182 @@ public class Main {
 									System.out.println();
 									System.out.println("Escolha uma dessas opções: ");
 									System.out.println("1 - Submeter artigo");
-									System.out.println("2 - Sair");
+									System.out.println("2 - Ver avaliação");
+									System.out.println("3 - Sair");
 									Scanner scanner14 = new Scanner(System.in);
 									try {
 										int opcao3 = scanner14.nextInt();
 										switch(opcao3) {
 											case 1:
-												System.out.println("Quantos autores vão participar desse artigo?");
-												Scanner scanner15 = new Scanner(System.in);
-												try {
-													int num_autores = scanner15.nextInt();
-													if(num_autores <= 0 ||  num_autores > 5) {
-														System.out.println("Você deve escolher entre 1 a 5 autores");
-													}else {
-														Autor[] autores = new Autor[num_autores];
-														autores[0] = Participante.getAutor(cpf);
-														if(num_autores > 1) {
-															Autor co_autor; 
-															for(int i = 1; i < num_autores; i++) {
-																System.out.println("Digite o nome do autor " + i);
-																Scanner scanner16 = new Scanner(System.in);
-																String nome_autor = scanner16.next();
-																System.out.println("Digite o CPF do autor " + i);
-																Scanner scanner17 = new Scanner(System.in);
-																String cpf_autor = scanner17.next();
-																System.out.println("Digite a data de nascimento do autor " + i);
-																Scanner scanner18 = new Scanner(System.in);
-																String data_nasc_autor = scanner18.next();
-																System.out.println("Digite a titulação do autor " + i);
-																Scanner scanner19 = new Scanner(System.in);
-																String titu_autor = scanner19.next();
-																System.out.println("Digite a instituição do autor " + i);
-																Scanner scanner20 = new Scanner(System.in);
-																String inst_autor = scanner20.next();
-																System.out.println("Digite a senha do autor " + i);
-																Scanner scanner21 = new Scanner(System.in);
-																String senha_autor = scanner21.next();
-																co_autor = new Autor(nome_autor, cpf_autor, data_nasc_autor, titu_autor, inst_autor, senha_autor,Autor.getArea_conhecimento(cpf));
-																autores[i] = co_autor;
+												Autor[] autores = {};
+												boolean sai = false;
+												while(sai == false) {
+													Scanner scanner15 = new Scanner(System.in);
+													try {
+														System.out.println("Quantos autores vão participar desse artigo?");
+														int num_autores = scanner15.nextInt();
+														if(num_autores <= 0 ||  num_autores > 5) {
+															System.out.println("Você deve escolher entre 1 a 5 autores");
+															
+														}else {
+															sai = true;
+															autores = new Autor[num_autores];
+															autores[0] = Participante.getAutor(cpf);
+															if(num_autores > 1) {
+																Autor co_autor; 
+																for(int i = 1; i < num_autores; i++) {
+																	boolean sai3 = false;
+																	while(sai3 == false) {
+																		System.out.println("Digite o CPF do autor " + i);
+																		Scanner scanner17 = new Scanner(System.in);
+																		String cpf_autor = scanner17.next();
+																		if(Participante.verificaCPF(cpf_autor) == 1) {
+																			if(Participante.getTipoparticipante(cpf_autor) == 'a') {
+																				autores[i] = Participante.getParticipante(cpf_autor).getAutor(cpf_autor);
+																				sai3 = true;
+																			}else {
+																				Participante.getParticipante(cpf_autor).setAutor(Participante.getParticipante(cpf_autor), Autor.getArea_conhecimento(cpf));
+																				autores[i] = Participante.getParticipante(cpf_autor).getAutor(cpf_autor);
+																				sai3 = true;
+																			} 
+																		}else {
+																			System.out.println("Digite o nome do autor " + i);
+																			Scanner scanner16 = new Scanner(System.in);
+																			String nome_autor = scanner16.next();
+																			System.out.println("Digite a data de nascimento do autor " + i);
+																			Scanner scanner18 = new Scanner(System.in);
+																			String data_nasc_autor = scanner18.next();
+																			System.out.println("Digite a titulação do autor " + i);
+																			Scanner scanner19 = new Scanner(System.in);
+																			String titu_autor = scanner19.next();
+																			System.out.println("Digite a instituição do autor " + i);
+																			Scanner scanner20 = new Scanner(System.in);
+																			String inst_autor = scanner20.next();
+																			System.out.println("Digite a senha do autor " + i);
+																			Scanner scanner21 = new Scanner(System.in);
+																			String senha_autor = scanner21.next();
+																			co_autor = new Autor(nome_autor, cpf_autor, data_nasc_autor, titu_autor, inst_autor, senha_autor,Autor.getArea_conhecimento(cpf));
+																			if(co_autor.getValidador() == 1) {
+																				autores[i] = co_autor;
+																				sai3 = true;
+																			}
+																		}
+																	}
+																}
 															}
 														}
+													}catch (InputMismatchException e){
+														System.out.println("Erro: Você deve inserir um número!");
 													}
-												}catch (InputMismatchException e){
-													System.out.println("Erro: Você deve inserir um número!");
+												}
+																							
+												Revisor[] revisores = {};
+												int num_revisores = 0; 
+												boolean sai1 = false;
+												while(sai1 == false) {
+													Scanner scanner22 = new Scanner(System.in);
+													try {
+														System.out.println("Quantos revisores vão avaliar esse artigo?");
+														num_revisores = scanner22.nextInt();
+														if(num_revisores <= 1 ||  num_revisores > 5) {
+															System.out.println("Você deve escolher entre 2 a 5 revisores");
+														}else {
+															sai1 = true;
+															revisores = new Revisor[num_revisores];
+															Revisor revisor;
+															for(int i = 0; i < num_revisores; i++) {
+																boolean sai4 = false;
+																while(sai4 == false){
+																	System.out.println("Digite o CPF do revisor " + i);
+																	Scanner scanner24 = new Scanner(System.in);
+																	String cpf_revisor = scanner24.next();
+																	if(Participante.verificaCPF(cpf_revisor) == 1) {
+																		if(Participante.getTipoparticipante(cpf_revisor) != 'r') {
+																			Participante.getParticipante(cpf_revisor).setRevisor(Participante.getParticipante(cpf_revisor), Autor.getArea_conhecimento(cpf));
+																			revisores[i] = Participante.getParticipante(cpf_revisor).getRevisor(cpf_revisor);
+																			sai4 = true;
+																		}
+																	}else {
+																		System.out.println("Digite o nome do revisor " + i);
+																		Scanner scanner23 = new Scanner(System.in);
+																		String nome_revisor = scanner23.next();
+																		System.out.println("Digite a data de nascimento do revisor " + i);
+																		Scanner scanner25 = new Scanner(System.in);
+																		String data_nasc_revisor= scanner25.next();
+																		System.out.println("Digite a titulação do revisor " + i);
+																		Scanner scanner26 = new Scanner(System.in);
+																		String titu_revisor = scanner26.next();
+																		System.out.println("Digite a instituição do revisor " + i);
+																		Scanner scanner27 = new Scanner(System.in);
+																		String inst_revisor = scanner27.next();
+																		System.out.println("Digite a senha do revisor " + i);
+																		Scanner scanner28 = new Scanner(System.in);
+																		String senha_revisor = scanner28.next();
+																		Participante p = new Participante(nome_revisor, cpf_revisor, data_nasc_revisor, titu_revisor, inst_revisor, senha_revisor);
+																		p.setRevisor(p,Autor.getArea_conhecimento(cpf));
+																		if(p.getValidador() == 1) {
+																			revisores[i] = p.getRevisor(cpf_revisor);
+																			sai4 = true;
+																		}
+																	}
+																}
+															}
+														}
+													}catch (InputMismatchException e){
+														System.out.println("Erro: Você deve inserir um número!");
+													}
+													
+												}
+												System.out.print("Digite um título: ");
+												Scanner scanner29 = new Scanner(System.in);
+												String titulo = scanner29.next();
+												System.out.print("Digite um abstract: ");
+												Scanner scanner30 = new Scanner(System.in);
+												String abstract_artigo = scanner30.next();
+												String[] palavras_chaves = {};
+												boolean sai2 = false;
+												while(sai2 == false) {
+													Scanner scanner31 = new Scanner(System.in);
+													try {
+														System.out.print("Quantas palavras-chaves terão no artigo? ");
+														int num_palavras_chave = scanner31.nextInt();
+														sai2 = true;
+														palavras_chaves = new String[num_palavras_chave];
+														for(int i = 0; i < num_palavras_chave; i++) {
+															Scanner scanner32 = new Scanner(System.in);
+															System.out.println("Insira a palavra-chave " + i);
+															String palavra_chave = scanner32.next();
+															palavras_chaves[i] = palavra_chave;
+														}
+													}catch (InputMismatchException e){
+														System.out.println("Erro: Você deve inserir um número!");
+													}
+												}
+												boolean sai5 = false;
+												int paginas = 0;
+												while(sai5 == false) {
+													System.out.print("Quantas páginas terão o artigo? ");
+													Scanner scanner33 = new Scanner(System.in);
+													try {
+														paginas = scanner33.nextInt();
+														sai5 = true;
+													}catch (InputMismatchException e){
+														System.out.println("Erro: Você deve inserir um número!");
+													}
+												}
+												System.out.print("Digite a data da submissão: ");
+												Scanner scanner34 = new Scanner(System.in);
+												String data_submissao = scanner34.next();
+												Artigo artigo = new Artigo(autores,revisores,titulo,abstract_artigo,palavras_chaves,paginas,data_submissao);
+												for(int i = 0; i < num_revisores; i++) {
+													revisores[i].setArtigo(artigo);
 												}
 												break;
 											case 2:
+												Participante.getAutor(cpf).avaliacaoArtigo();
+												break;
+												
+											case 3:
 												sair3 = true;
 												break;
 										}
@@ -141,11 +317,83 @@ public class Main {
 									}	
 								}
 							}else if(Participante.getTipoparticipante(cpf) == 'r') {
-								System.out.println();
-								System.out.println("Menu para revisor");
+								boolean sair4 = false;
+								while(sair4 == false) {
+									System.out.println();
+									System.out.println("Menu para revisor");
+									System.out.println();
+									System.out.println("Escolha uma dessas opções: ");
+									System.out.println("1 - Listar Artigos");
+									System.out.println("2 - Avaliar Artigo");
+									System.out.println("3 - Ver Avaliação do Artigo");
+									System.out.println("4 - Sair");
+									Scanner scanner34 = new Scanner(System.in);
+									try {
+										int opcao4 = scanner34.nextInt();
+										switch(opcao4) {
+											case 1:
+												Participante.getRevisor(cpf).listaArtigos();
+												break;
+											case 2:
+												System.out.println("Digite o título do artigo que você deseja avaliar: ");
+												Scanner scanner35 = new Scanner(System.in);
+												String titulo = scanner35.next();
+												Participante.getRevisor(cpf).avaliaArtigo(titulo);
+												break;
+											case 3:
+												Participante.getRevisor(cpf).verAvalicao();
+												break;
+											case 4:
+												sair4 = true;
+												break;
+											default:
+												System.out.println("Digite um valor correto");
+												break;
+										}
+									}catch (InputMismatchException e){
+										System.out.println("Erro: Você deve inserir um número!");
+									}
+								}
 							}else if(Participante.getTipoparticipante(cpf) == 'p') {
-								System.out.println();
-								System.out.println("Menu para program chair");
+								boolean sair5 = false;
+								while(sair5 == false) {
+									System.out.println();
+									System.out.println("Menu para program chair");
+									System.out.println();
+									System.out.println("Escolha uma dessas opções: ");
+									System.out.println("1 - Ver avaliação");
+									System.out.println("2 - Aprova artigo");
+									System.out.println("3 - Sair");
+									Scanner scanner36 = new Scanner(System.in);
+									try {
+										int opcao5 = scanner36.nextInt();
+										switch(opcao5) {
+											case 1:
+												Program_Chairs.verAvaliacao();
+												break;
+											case 2:
+												System.out.println();
+												System.out.println("Digite o título do artigo que deseja avaliar");
+												Scanner scanner37 = new Scanner(System.in);
+												String titulo = scanner37.next();
+												System.out.println();
+												System.out.println("Digite 1 para aprovar o artigo e 0 para recusar");
+												Scanner scanner38 = new Scanner(System.in);
+												try {
+													int avalia = scanner38.nextInt();
+													Participante.getProgramC(cpf).validaArtigo(titulo, avalia);
+												}catch (InputMismatchException e){
+													System.out.println("Erro: Você deve inserir um número!");
+												}
+												break;
+											case 3:
+												sair5 = true;
+												break;
+										}
+									}catch (InputMismatchException e){
+										System.out.println("Erro: Você deve inserir um número!");
+									}
+								}
 							}else if(Participante.getTipoparticipante(cpf) == 'g') {
 								boolean sair2 = false;
 								while(sair2 == false) {
@@ -282,6 +530,15 @@ public class Main {
 						}
 						break;
 					case 3:
+						Pessoa.listaArtigos_aprovados();
+						break;
+					case 4:
+						Pessoa.listaArtigos_reprovados();
+						break;
+					case 5:
+						Pessoa.listaDadosArtigos();
+						break;
+					case 6:
 						sair = true;
 						break;
 					default:
