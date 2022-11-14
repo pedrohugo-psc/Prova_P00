@@ -23,7 +23,6 @@ public class Program_Chairs extends Organizadores{
 	// 1 - Aprova o artigo; 0 - Reprova o artigo
 	public void validaArtigo(String titulo_pc, int valida) {
 		int index = -1;
-		int index1 = index;
 		for(int i = 0; i < artigos_pc.size();i++) {
 			if(artigos_pc.get(i).getTitulo().equals(titulo_pc)) {
 				index = i;
@@ -32,7 +31,7 @@ public class Program_Chairs extends Organizadores{
 		if(index == -1) {
 			System.out.println("Esse título não foi encontrado");
 		}
-		if(valida == 1 || valida == 0) {
+		if((valida == 1 || valida == 0) && index != -1) {
 			artigos_pc.get(index).setValida(valida);
 		}else {
 			System.out.println("É preciso inserir 1 ou 0");

@@ -50,7 +50,7 @@ public abstract class Pessoa {
 	public boolean getInscrito() {
 		return inscrito;
 	}
-	public static void listaArtigos_aprovados() {
+	public static void listaArtigos_aprovados() { // Lista artigos aprovados
 		LinkedList<String> lista_temp = new LinkedList<String>();
 		for(int i = 0; i < artigos.size(); i++) {
 			if((artigos.get(i).valida == 1) && titulo_artigos.get(i).equals(artigos.get(i).titulo)) {
@@ -64,7 +64,7 @@ public abstract class Pessoa {
 		}
 	}
 	
-	public static void listaArtigos_reprovados() {
+	public static void listaArtigos_reprovados() { // Lista artigos reprovados
 		LinkedList<String> lista_temp = new LinkedList<String>();
 		for(int i = 0; i < artigos.size(); i++) {
 			if(artigos.get(i).valida == 0  && titulo_artigos.get(i).equals(artigos.get(i).titulo)) {
@@ -78,7 +78,7 @@ public abstract class Pessoa {
 		}
 	}
 	
-	public static void listaDadosArtigos() {
+	public static void listaDadosArtigos() { // Lista todos os artigos com detalhes
 		for(int i = 0; i < artigos.size(); i++) {
 			System.out.println("-----------------------------------------------------------");
 			System.out.println("Título: " + artigos.get(i).titulo);

@@ -31,7 +31,7 @@ public class Autor extends Especialista {
 		return Participante.participantes.get(indice).autor.area_conhecimento;
 	}
 	
-	public void avaliacaoArtigo() {
+	public void avaliacaoArtigo() { // visuliza as avalições dos artigos
 		for(int i = 0; i < artigos_a.size(); i++) {
 			artigos_a.get(i).getAvalicao_revisor();
 		} 
@@ -40,8 +40,8 @@ public class Autor extends Especialista {
 	public void setArtigo(Artigo artigo) {
 		this.artigos_a.add(artigo); 
 	} 
-	
-	public void  listaArtigos() {
+
+	public void  listaArtigos() { // Lista os artigos do autor
 		for(int i = 0; i < artigos_a.size(); i++) {
 			System.out.println(artigos_a.get(i).titulo + " - Identificador: " + artigos_a.get(i).identificador);
 		}

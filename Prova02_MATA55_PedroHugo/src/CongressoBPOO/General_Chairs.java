@@ -1,5 +1,7 @@
 package CongressoBPOO;
 
+import java.util.Collections;
+
 public class General_Chairs extends Organizadores{
 	
 	public General_Chairs(String nome_gc, String cpf_gc, String data_nascimento_gc, String titulacao_acad_gc, String instituicao_vinc_gc, String senha_gc) {
@@ -12,7 +14,7 @@ public class General_Chairs extends Organizadores{
 		inscrito.setValida(true);
 	}
 	
-	public static void validaInscricao(String cpf) {
+	public static void validaInscricao(String cpf) { // valida inscrição
 		int indice = -1; 
 		for(int i = 0; i < Participante.participantes.size(); i++) {
 			if(Participante.cpfs.get(i).equals(cpf)) {
@@ -26,7 +28,7 @@ public class General_Chairs extends Organizadores{
 		}
 	}
 	
-	public static void invalidaInscricao(String cpf) {
+	public static void invalidaInscricao(String cpf) { // invalida inscrição
 		int indice = -1; 
 		for(int i = 0; i < Participante.participantes.size(); i++) {
 			if(Participante.cpfs.get(i).equals(cpf)) {
@@ -40,7 +42,7 @@ public class General_Chairs extends Organizadores{
 		}
 	} 
 	
-	public static void emitirCertificado(String cpf) {
+	public static void emitirCertificado(String cpf) { // emite certificado
 		int indice = -1; 
 		for(int i = 0; i < Participante.participantes.size(); i++) {
 			if(Participante.cpfs.get(i).equals(cpf)) {
@@ -55,6 +57,13 @@ public class General_Chairs extends Organizadores{
 			System.out.println("Certificado:");
 			System.out.println("Informo que " + Participante.participantes.get(indice).nome + " participou do Congresso Brasileiro de Programação Orientada a Objeto");
 			System.out.println("------------------------------------------------------------------------------------------------------------");
+		}
+	}
+	
+	public static void listaParticipantes() { // Lista participantes
+		Collections.sort(Participante.nomes_participantes);
+		for(int i = 0; i < Participante.nomes_participantes.size(); i++) {
+			System.out.println(Participante.nomes_participantes.get(i));
 		}
 	}
 }

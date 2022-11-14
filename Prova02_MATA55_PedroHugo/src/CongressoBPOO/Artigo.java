@@ -13,13 +13,13 @@ public class Artigo {
 	protected String[] palavras_chaves;
 	protected int qtnd_paginas;
 	protected String data_submissao;
-	protected int valida = 0;
+	protected int valida = 0; // 1 - Artigo aprovado; 0 - Artigo Reprovado
 	private boolean permite_submissao = false;
 	protected ArrayList<String> avaliacao_revisor;
 	
 	public Artigo(Autor[] autores_ar,Revisor[] revisores_ar, String titulo_ar, String abstract_artigo_ar, String[] palavras_chaves_ar, int qtnd_paginas_ar,String data_submissao_ar) {
 		
-		for(int i = 0; i < autores_ar.length; i++) {
+		for(int i = 0; i < autores_ar.length; i++) { // verifica se algum autor está inscrito
 			if(autores_ar[i].getInscricao() == true) {
 				permite_submissao = true;
 			}

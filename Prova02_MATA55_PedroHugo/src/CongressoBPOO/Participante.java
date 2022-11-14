@@ -27,22 +27,22 @@ public class Participante extends Pessoa {
 	}
 	
 	
-	public void setAutor(Participante inscrito,String area_par) {
+	public void setAutor(Participante inscrito,String area_par) { // Participante também vira autor
 		autor = new Autor(inscrito, area_par);
 		tipo_participante = 'a';
 	}
 	
-	public void setRevisor(Participante inscrito,String area_par) {
+	public void setRevisor(Participante inscrito,String area_par) { // Participante também vira revisor
 		revisor = new Revisor(inscrito,area_par);
 		tipo_participante = 'r';
 	}
 	
-	public void setProgramChairs(Participante inscrito) {
+	public void setProgramChairs(Participante inscrito) { // Participante também vira program chair
 		program = new Program_Chairs(inscrito);
 		tipo_participante = 'p';
 	}
 	
-	public void setGeneralChairs(Participante inscrito) {
+	public void setGeneralChairs(Participante inscrito) { // Participante também vira general chair
 		general = new General_Chairs(inscrito);
 		tipo_participante = 'g';
 	}
@@ -120,7 +120,7 @@ public class Participante extends Pessoa {
 		return existe;
 	}
 	
-	public static String resgataParticipantes(String cpf){
+	public static String resgataParticipantes(String cpf){ // encontra participante com nome
 		int indice = 0; 
 		for(int i = 0; i < participantes.size(); i++) {
 			if(cpfs.get(i).equals(cpf)) {
@@ -140,15 +140,9 @@ public class Participante extends Pessoa {
 		return participantes.get(indice).tipo_participante;
 	}
 	
-	public static void listaParticipantes() {
-		Collections.sort(nomes_participantes);
-		for(int i = 0; i < nomes_participantes.size(); i++) {
-			System.out.println(nomes_participantes.get(i));
-		}
-	}
 	
 
-	public static byte verificaCPF(String cpf_p) {
+	public static byte verificaCPF(String cpf_p) { // verifica cpf do participante
 		byte verifica = 0;
 		for (int i = 0; i < cpf_pessoas.size(); i++) {
 			if(cpf_pessoas.get(i).equals(cpf_p)) {
